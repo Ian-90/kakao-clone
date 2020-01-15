@@ -141,3 +141,192 @@
 |        |                    id                     |                 class |
 | ------ | :---------------------------------------: | --------------------: |
 | 사용성 | element마다 한개만 가져야 한다. 고유하다. | 여러개 사용 가능하다. |
+
+## CSS(Cascading Style Sheets)
+
+### 1. CSS Syntax
+
+```css
+selector(tag, id, class) {
+  property-name: value;
+}
+```
+
+- selector는 tag, id, class가 될 수 있다.
+- property와 value는 소문자
+- value끝에는 세미콜론(;)으로 끝나야 한다.
+
+### 2. CSS 사용방법
+
+- Inline Styles - tag에 직접 style property로 css를 주는 방식
+
+  ```html
+  <span style="color: red;">text<span></span></span>
+  ```
+
+- Internal Style Sheet - html문서 head tag 사이에 style tag를 넣고, css를 작성하는 방식
+
+  - index.html
+
+  ```html
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>This is my title</title>
+      <style>
+        h1 {
+          color: red;
+        }
+
+        #small_title {
+          font-size: 20px;
+        }
+
+        .container {
+          background-color: blue;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>Big Title</h1>
+      <h6 id="small_title">Small Title</h6>
+      <div class="container">a</div>
+      <div class="container">b</div>
+    </body>
+  </html>
+  ```
+
+  - 똑같은 css를 여러개의 html파일에 사용해야한다고 했을 때, css를 모든 html 파일에 복사해야하기 때문에 불편하다.
+  - html 파일이 지저분하다.
+  - 같은 selector의 css를 변경할 때, 여러 html 파일을 변경해야 하기 때문에 css가 적용이 안되는 부분도 생길 수 있다.
+
+- External Style Sheet - html문서 head tag 사이에 link tag를 통해서 css를 불러오는 방식
+
+  - index.html
+
+  ```html
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>This is my title</title>
+      <link href="index.css" rel="stylesheet" />
+    </head>
+    <body>
+      <h1>Big Title</h1>
+      <h6 id="small_title">Small Title</h6>
+      <div class="container">a</div>
+      <div class="container">b</div>
+    </body>
+  </html>
+  ```
+
+  - index.css
+
+  ```css
+  h1 {
+    color: red;
+  }
+
+  #small_title {
+    font-size: 20px;
+  }
+
+  .container {
+    background-color: blue;
+  }
+  ```
+
+  - 같은 selector의 css를 변경할 때, css 파일 하나만 수정하면 되기때문에 편하다.
+
+### 3. Box Model
+
+![Box Model](./assets/css_box_model.png)
+
+- Box Model의 4 요소
+
+  - Contents
+  - Border
+
+    - 사용법
+
+      - width, style, color로 css를 줄 수 있다.
+
+      ```css
+      .box {
+        border-width: 5px;
+        border-style: dashed;
+        border-color: blue;
+      }
+      ```
+
+      - 요약해서 쓰는 방식(width, style, color 순서)
+
+      ```css
+      .box {
+        border: 5px dashed blue;
+      }
+      ```
+
+  - Padding - Border 안쪽에 있는 간격
+
+    - 사용법
+
+      - padding을 방향에 따라 padding-top, padding-right, padding-bottom, padding-left로 각각 줄 수 있다.
+
+      ```css
+      .box {
+        padding-top: 50px;
+        padding-right: 40px;
+        padding-bottom: 30px;
+        padding-left: 20px;
+      }
+      ```
+
+      - 요약해서 쓰는 방식(시계방향 순이다. top, right, bottom, left)
+
+      ```css
+      .box {
+        padding: 50px 40px 30px 20px;
+      }
+      ```
+
+      - 상하좌우가 같을 경우((top, bottom)px (left, right)px 순서)
+
+      ```css
+      .box {
+        padding: 50px 30px;
+      }
+      ```
+
+  - Margin - Border 바깥에 있는 간격(위의 padding 사용법과 동일하다.)
+  - [example](https://www.w3schools.com/css/tryit.asp?filename=trycss_boxmodel)
+
+### 4. Display
+
+- none - 차지하던 영역이 사라진다.
+- block - 옆에 다른 element가 위치하는 것을 허용하지 않음. width와 height가 존재
+- inline-block - block안에 element가 붙어서 존재한다. block안에 박스가 너무많아서 박스가 다 채워지면, 밑에줄로 박스들이 넘어간다. width와 height가 존재
+- inline - text라고 생각하면 된다. box는 사라진다. width와 height를 줄 수 없음.
+- [example](https://www.w3schools.com/cssref/tryit.asp?filename=trycss_display)
+
+### 5. Position
+
+- static(default)
+- fixed - 위치를 고정. 스크롤해도 사라지지않음 (top, bottom, left, right 값을 줄 수 있다.)([exmaple](https://www.w3schools.com/css/tryit.asp?filename=trycss_position_fixed))
+- absolute - 어디에든 붙일 수 있지만, 스크롤해도 고정되진 않음. 부모 박스에 상응해서 포지션(top, bottom, left, right)이 결정된다. 부모박스를 만들어 주려면 부모박스에 position: relative를 주면 된다. ([example](https://www.w3schools.com/css/tryit.asp?filename=trycss_position_absolute))
+
+### 6. Flexbox
+
+- [example](https://www.w3schools.com/css/css3_flexbox.asp)
+
+- [flexbox game](https://flexboxfroggy.com/#ko)
+
+### 7. Pseudo Selector
+
+- tag나 id, class를 사용하지 않고 element를 선택하는 방법
+- 레이아웃이 복잡 할 때, 사용하면 유용하다.
+- [example](https://www.w3schools.com/css/css_pseudo_elements.asp)
+
+### 8. Pseudo class
+
+- [example](https://www.w3schools.com/css/tryit.asp?filename=trycss_link)
