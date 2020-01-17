@@ -312,7 +312,7 @@ selector(tag, id, class) {
 ### 5. Position
 
 - static(default)
-- fixed - 위치를 고정. 스크롤해도 사라지지않음 (top, bottom, left, right 값을 줄 수 있다.)([exmaple](https://www.w3schools.com/css/tryit.asp?filename=trycss_position_fixed))
+- fixed - 위치를 고정. 스크롤해도 사라지지않음 (top, bottom, left, right 값을 줄 수 있다. width와 height를 설정해줘야한다.)([exmaple](https://www.w3schools.com/css/tryit.asp?filename=trycss_position_fixed))
 - absolute - 어디에든 붙일 수 있지만, 스크롤해도 고정되진 않음. 부모 박스에 상응해서 포지션(top, bottom, left, right)이 결정된다. 부모박스를 만들어 주려면 부모박스에 position: relative를 주면 된다. ([example](https://www.w3schools.com/css/tryit.asp?filename=trycss_position_absolute))
 
 ### 6. Flexbox
