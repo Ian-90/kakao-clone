@@ -330,3 +330,11 @@ selector(tag, id, class) {
 ### 8. Pseudo class
 
 - [example](https://www.w3schools.com/css/tryit.asp?filename=trycss_link)
+
+### 9. box-sizing, border-box
+
+- border-box에서 padding을 주면?
+
+  - 넓이를 원래 생각한것보다 padding만큼 줄여야 한다. 왜냐하면 넓이가 준것에 padding값이 더해져서 box의 넓이가 더 커지기때문이다.
+
+- [example](https://www.w3schools.com/css/css3_box-sizing.asp)
