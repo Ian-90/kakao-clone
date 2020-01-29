@@ -338,3 +338,88 @@ selector(tag, id, class) {
   - 넓이를 원래 생각한것보다 padding만큼 줄여야 한다. 왜냐하면 넓이가 준것에 padding값이 더해져서 box의 넓이가 더 커지기때문이다.
 
 - [example](https://www.w3schools.com/css/css3_box-sizing.asp)
+
+## 3, Advanced CSS
+
+### 1. Transitions
+
+- transition은 hover, focus, active에서 효과적으로 적용이 된다.
+
+- 사용법
+
+```
+selector {
+  transition: <property> <duration> <timing-function>;
+}
+```
+
+- [example](https://www.w3schools.com/css/tryit.asp?filename=trycss3_transition5)
+
+- transition을 여러 속성을 주려면? 콤마(,)로 구분해서 똑같이 반복하면 된다. (단, 모든 css속성에 transition을 주려면 property에 all을 쓰면 된다.)
+
+```
+selector {
+  transition: <property> <duration> <timing-function>, <property> <duration> <timing-function>, ...
+}
+```
+
+### 2. Transformations
+
+- [transformation](https://www.w3schools.com/cssref/css3_pr_transform.asp) - html문서의 element들을 변경, 모습이 변하는 효과
+- [example](https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_image_gallery)
+
+### 3. Animations
+
+- hover같은거 없이 transition같은것들이 계속 발생하려면? [animation](https://www.w3schools.com/cssref/css3_pr_animation.asp)을 사용해라!
+
+- 사용법
+
+```
+// 1. from to를 이용
+@keyframe <animation name> {
+  from {
+    변화가없는상태의 css
+  }
+
+  to {
+    변화된모습의 css
+  }
+}
+
+// 2. 0%-50%-100% 사용
+@keyframe <animation name> {
+  0% {
+    변화가없는상태의 css
+  }
+
+  50% {
+    변화된모습의 css
+  }
+
+  100% {
+    변화가없는상태의 css
+  }
+}
+
+selector {
+  animation: <duration> <animation name> <timing-function> <iteration-count>;
+}
+```
+
+- [example](https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_animation)
+
+### 4. Media Queries
+
+- 브라우저가 큰지 작은지 알아내는 방법 - [media query](https://www.w3schools.com/cssref/css3_pr_mediaquery.asp)
+
+  - 왜 필요한가? 데스크탑, 태블릿, 모바일등 여러가지 css를 대응하기 위해서 필요하다. 즉, 반응형 웹디자인을 하기 위해서 필요하다.
+
+- 사용법
+
+```
+@media only|not <media type> and (media feature) {
+  CSS스타일코드
+}
+```
+
+-[example](https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_media_bg)
